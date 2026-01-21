@@ -1,477 +1,478 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lift Lebanon | Hotel Amenities Supplier</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lift Lebanon | Hotel Amenities & Guest Supplies</title>
+  <meta name="description" content="Hotel amenities & guest supplies in Lebanon. Launching soon — reliable, high-quality guest essentials for hotels and guesthouses." />
+
+  <!-- Phone country flag dropdown (like Wix) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
 
   <style>
     :root{
-      --primary:#0b5fff;
-      --dark:#0f172a;
-      --muted:#64748b;
-      --bg:#f6f8fc;
+      --bg:#f6f7fb;
       --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
       --border:#e5e7eb;
-      --shadow:0 12px 30px rgba(0,0,0,0.08);
+      --shadow: 0 12px 30px rgba(15,23,42,.08);
       --radius:16px;
+      --accent:#0f4c81;
     }
 
-    *{box-sizing:border-box;}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:var(--bg);
-      color:var(--dark);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 20% -10%, #eaf2ff 0%, transparent 60%),
+                  radial-gradient(900px 500px at 90% 0%, #e7fff3 0%, transparent 55%),
+                  var(--bg);
     }
 
-    /* ====== NAV (Wix-like top menu) ====== */
-    .navbar{
-      position:sticky;
-      top:0;
-      z-index:999;
-      background:#fff;
+    /* Top nav (Wix-like clean menu) */
+    .topbar{
+      position:sticky; top:0; z-index:1000;
+      background:rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
       border-bottom:1px solid var(--border);
     }
-
-    .nav-inner{
+    .nav{
       max-width:1100px;
-      margin:auto;
-      padding:14px 18px;
+      margin:0 auto;
+      padding:10px 18px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
+      gap:14px;
     }
-
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight:800;
-      letter-spacing:0.3px;
+      min-width:180px;
     }
-
     .brand img{
-      width:42px;
-      height:42px;
+      width:44px;height:44px;
       object-fit:contain;
       border-radius:10px;
       background:#fff;
-      border:1px solid var(--border);
-      padding:6px;
+    }
+    .brand-title{
+      font-weight:800;
+      letter-spacing:.2px;
+      line-height:1.1;
+    }
+    .brand-title small{
+      display:block;
+      font-weight:600;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:2px;
     }
 
-    .nav-links{
+    .menu{
       display:flex;
       gap:18px;
       align-items:center;
       flex-wrap:wrap;
+      justify-content:flex-end;
     }
-
-    .nav-links a{
+    .menu a{
       text-decoration:none;
-      color:var(--dark);
-      font-weight:600;
-      font-size:14px;
-      padding:8px 10px;
-      border-radius:10px;
-      transition:0.2s;
-    }
-
-    .nav-links a:hover{
-      background:rgba(11,95,255,0.08);
-      color:var(--primary);
-    }
-
-    .nav-cta{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-
-    .btn{
-      border:none;
-      cursor:pointer;
-      padding:10px 14px;
-      border-radius:12px;
+      color:#111827;
       font-weight:700;
       font-size:14px;
-      text-decoration:none;
-      display:inline-block;
-      transition:0.2s;
+      padding:10px 10px;
+      border-radius:10px;
+    }
+    .menu a:hover{
+      background:#f3f4f6;
     }
 
-    .btn-primary{
-      background:var(--primary);
-      color:white;
-      box-shadow:0 10px 18px rgba(11,95,255,0.25);
+    .cta{
+      display:flex; gap:10px; align-items:center;
     }
-    .btn-primary:hover{
-      transform:translateY(-1px);
-    }
-
-    .btn-outline{
-      background:#fff;
-      color:var(--dark);
-      border:1px solid var(--border);
-    }
-
-    /* ====== HERO ====== */
-    .hero{
-      max-width:1100px;
-      margin:auto;
-      padding:50px 18px 20px;
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap:20px;
+    .btn{
+      display:inline-flex;
       align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:#111827;
+      font-weight:800;
+      text-decoration:none;
+      font-size:14px;
+      box-shadow: 0 8px 18px rgba(15,23,42,.06);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:#fff;
+      border-color:transparent;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0px)}
+
+    /* Layout */
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:28px 18px 80px;
     }
 
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:22px;
+      align-items:stretch;
+      margin-top:22px;
+    }
     .hero-card{
       background:var(--card);
       border:1px solid var(--border);
       border-radius:var(--radius);
-      padding:28px;
       box-shadow:var(--shadow);
+      padding:26px;
     }
 
     .hero h1{
-      margin:0 0 10px;
-      font-size:34px;
-      line-height:1.2;
+      font-size:38px;
+      line-height:1.1;
+      margin:8px 0 10px;
+      letter-spacing:-.5px;
     }
-
     .hero p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.6;
-    }
-
-    .hero-badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:14px;
-    }
-
-    .badge{
-      font-size:12px;
-      font-weight:700;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:#fff;
-      color:var(--dark);
-    }
-
-    .side-card{
-      background:linear-gradient(135deg, rgba(11,95,255,0.12), rgba(11,95,255,0.03));
-      border:1px solid rgba(11,95,255,0.2);
-      border-radius:var(--radius);
-      padding:22px;
-    }
-
-    .side-card h3{
-      margin:0 0 8px;
-      font-size:18px;
-    }
-    .side-card p{
       margin:0;
       color:var(--muted);
-      font-size:14px;
+      font-size:16px;
       line-height:1.6;
+      max-width:62ch;
     }
 
-    /* ====== SECTIONS ====== */
-    .section{
-      max-width:1100px;
-      margin:auto;
-      padding:20px 18px;
-    }
-
-    .section-title{
-      margin:0 0 12px;
-      font-size:22px;
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:#f8fafc;
+      color:#0f172a;
+      font-weight:800;
+      font-size:13px;
+      margin-bottom:10px;
     }
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:14px;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:18px;
     }
-
     .card{
       background:var(--card);
       border:1px solid var(--border);
       border-radius:var(--radius);
-      padding:18px;
-      box-shadow:0 6px 14px rgba(0,0,0,0.05);
+      box-shadow:var(--shadow);
+      padding:22px;
     }
-
-    .card h4{
-      margin:0 0 8px;
-      font-size:16px;
+    .card h2{
+      margin:0 0 10px;
+      font-size:20px;
+      letter-spacing:-.2px;
     }
-
-    .card p{
+    .card ul{
       margin:0;
+      padding-left:18px;
       color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
+      line-height:1.7;
     }
 
-    /* ====== CONTACT ====== */
-    .contact-wrap{
+    .contact-grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:18px;
+      align-items:start;
     }
-
-    .contact-details{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:10px;
-    }
-
     .contact-item{
       display:flex;
-      align-items:center;
       gap:10px;
-      padding:12px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:#fff;
-    }
-
-    .contact-item span{
+      align-items:flex-start;
       color:var(--muted);
-      font-size:14px;
+      line-height:1.6;
+      margin:8px 0;
     }
-
-    form{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+    .contact-item b{color:var(--text)}
+    .mini{
+      color:var(--muted);
+      font-size:13px;
       margin-top:10px;
     }
 
-    input, textarea{
-      width:100%;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      outline:none;
+    /* ===== Wix-style form (your screenshot style) ===== */
+    .wix-form{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      margin-top:10px;
+    }
+    .wix-form label{
       font-size:14px;
-      font-family:inherit;
-      background:#fff;
+      font-weight:600;
+      color:#111827;
     }
-
-    textarea{min-height:120px; resize:vertical;}
-
-    .footer{
-      padding:30px 18px;
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
+    .wix-form label span{
+      color:#e11d48;
+      font-weight:700;
     }
+    .wix-form input,
+    .wix-form textarea{
+      border:none;
+      border-bottom:1px solid #d1d5db;
+      border-radius:0;
+      padding:10px 4px;
+      font-size:14px;
+      outline:none;
+      background:transparent;
+    }
+    .wix-form textarea{
+      min-height:70px;
+      resize:none;
+    }
+    .wix-btn{
+      background:#3f3f46;
+      color:white;
+      border:none;
+      padding:14px;
+      border-radius:6px;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:10px;
+    }
+    .wix-btn:hover{background:#27272a}
 
-    /* ====== WHATSAPP FLOAT BUTTON (small, circular, bottom right) ====== */
+    /* Make intl-tel-input look clean */
+    .iti{ width:100%; }
+    .iti__tel-input{ width:100%; }
+
+    /* WhatsApp Floating Button (bottom-right) */
     .whatsapp-float{
       position:fixed;
       width:56px;
       height:56px;
-      bottom:22px;
-      right:22px;
+      bottom:18px;
+      right:18px;
       background:#25D366;
       border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
-      box-shadow:0 10px 20px rgba(0,0,0,0.25);
+      box-shadow: 0 10px 25px rgba(0,0,0,.22);
       z-index:9999;
       text-decoration:none;
     }
-
     .whatsapp-float img{
       width:28px;
       height:28px;
       display:block;
+      border-radius:50%;
     }
 
-    .whatsapp-float:hover{
-      transform:translateY(-2px);
-      transition:0.2s;
+    /* Footer */
+    footer{
+      margin-top:28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
     }
 
-    /* ====== RESPONSIVE ====== */
-    @media(max-width:900px){
-      .hero{
-        grid-template-columns:1fr;
-      }
-      .grid{
-        grid-template-columns:1fr;
-      }
-      .contact-wrap{
-        grid-template-columns:1fr;
-      }
-      .nav-links{
-        display:none;
-      }
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .brand{min-width:auto}
     }
   </style>
 </head>
 
-<body>
-
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="nav-inner">
+<body id="home">
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="nav">
       <div class="brand">
-        <!-- If you have your logo file in repo, replace src with it (example: src="logo.png") -->
-        <img src="Screenshot 2026-01-20 225602.png" alt="Lift Lebanon Logo">
-        <div>Lift Lebanon</div>
+        <!-- Your uploaded logo file in the repo.
+             If it doesn't show, rename the file to "logo.png" and change src="logo.png" -->
+        <img src="Screenshot%202026-01-20%20225602.png" alt="Lift Lebanon logo">
+        <div class="brand-title">
+          Lift Lebanon
+          <small>Lead • Innovate • Foster • Transform</small>
+        </div>
       </div>
 
-      <div class="nav-links">
+      <div class="menu">
         <a href="#home">Home</a>
-        <a href="#offers">What we offer</a>
-        <a href="#for">Who it's for</a>
+        <a href="#offer">What we offer</a>
+        <a href="#for">Who it’s for</a>
         <a href="#contact">Contact</a>
       </div>
 
-      <div class="nav-cta">
-        <a class="btn btn-outline" href="mailto:ops@liftlb.com">Email Us</a>
-        <a class="btn btn-primary" href="#contact">Get a Quote</a>
+      <div class="cta">
+        <a class="btn" href="mailto:ops@liftlb.com">Email</a>
+        <a class="btn primary" href="#contact">Send a message</a>
       </div>
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="hero" id="home">
-    <div class="hero-card">
-      <h1>Hotel Amenities Supplier in Lebanon</h1>
-      <p>
-        Lift Lebanon supplies high-quality guest amenities for hotels, guesthouses,
-        serviced apartments, and resorts. Fast delivery, custom branding, and reliable service.
-      </p>
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card">
+        <div class="pill">🚀 Launching soon</div>
 
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="#contact">Contact Us</a>
-        <a class="btn btn-outline" href="https://wa.me/96170374172" target="_blank">WhatsApp</a>
+        <!-- ✅ Change #1 (title) -->
+        <h1>Hotel Amenities &amp; Guest Supplies in Lebanon</h1>
+
+        <!-- ✅ Change #2 (paragraph) -->
+        <p>
+          Launching soon — we help hotels and guesthouses offer a better guest experience
+          with reliable, high-quality guest essentials.
+        </p>
+
+        <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="#contact">Contact Us</a>
+          <a class="btn" href="#offer">See what we offer</a>
+        </div>
+
+        <div class="mini">
+          WhatsApp: <b>+961 70 374 172</b> • Email: <b>ops@liftlb.com</b>
+        </div>
       </div>
 
-      <div class="hero-badges">
-        <div class="badge">Fast Delivery</div>
-        <div class="badge">Custom Branding</div>
-        <div class="badge">Bulk Supply</div>
-        <div class="badge">Hospitality Quality</div>
+      <div class="hero-card">
+        <h2 style="margin:0 0 10px; font-size:20px;">Quick highlights</h2>
+        <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.8;">
+          <li>Guest room amenities &amp; bathroom essentials</li>
+          <li>Hospitality supplies + bulk delivery</li>
+          <li>Custom branding (optional)</li>
+          <li>Reliable service in Lebanon</li>
+        </ul>
       </div>
-    </div>
+    </section>
 
-    <div class="side-card">
-      <h3>Quick Contact</h3>
-      <p><b>WhatsApp:</b> +96170374172</p>
-      <p><b>Email:</b> ops@liftlb.com</p>
-      <p style="margin-top:10px;">
-        We respond quickly on WhatsApp and email.
-      </p>
-    </div>
-  </div>
-
-  <!-- WHAT WE OFFER -->
-  <div class="section" id="offers">
-    <h2 class="section-title">What we offer</h2>
-
-    <div class="grid">
+    <!-- CARDS -->
+    <section class="grid" id="offer">
       <div class="card">
-        <h4>Guest room amenities</h4>
-        <p>Soap, shampoo, conditioner, lotion, vanity kits, and more.</p>
+        <h2>What we offer</h2>
+        <ul>
+          <li>Guest room amenities</li>
+          <li>Bathroom essentials</li>
+          <li>Hospitality supplies</li>
+          <li>Custom branding (optional)</li>
+          <li>Delivery &amp; bulk supply</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <h4>Hospitality supplies</h4>
-        <p>Slippers, dental kits, shaving kits, comb kits, shower caps.</p>
+      <div class="card" id="for">
+        <h2>Who it’s for</h2>
+        <ul>
+          <li>Hotels</li>
+          <li>Guesthouses</li>
+          <li>Serviced apartments</li>
+          <li>Resorts</li>
+        </ul>
       </div>
+    </section>
 
+    <!-- CONTACT -->
+    <section class="contact-grid" id="contact" style="margin-top:18px;">
       <div class="card">
-        <h4>Custom branding</h4>
-        <p>Logo printing and packaging options for your hotel brand.</p>
-      </div>
-    </div>
-  </div>
+        <h2>Contact details</h2>
 
-  <!-- WHO IT'S FOR -->
-  <div class="section" id="for">
-    <h2 class="section-title">Who it’s for</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h4>Hotels</h4>
-        <p>Reliable supply and consistent quality for guest satisfaction.</p>
-      </div>
-
-      <div class="card">
-        <h4>Guesthouses</h4>
-        <p>Flexible quantities and fast delivery across Lebanon.</p>
-      </div>
-
-      <div class="card">
-        <h4>Resorts & Apartments</h4>
-        <p>Bulk orders, custom options, and premium presentation.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- CONTACT -->
-  <div class="section" id="contact">
-    <h2 class="section-title">Contact us</h2>
-
-    <div class="contact-wrap">
-      <div class="card">
-        <h4>Contact details</h4>
-        <div class="contact-details">
-          <div class="contact-item">
-            📞 <span><b>WhatsApp:</b> +96170374172</span>
+        <div class="contact-item">
+          <div>📱</div>
+          <div>
+            WhatsApp: <b><a href="https://wa.me/96170374172" style="color:inherit;">+961 70 374 172</a></b>
           </div>
-          <div class="contact-item">
-            ✉️ <span><b>Email:</b> ops@liftlb.com</span>
+        </div>
+
+        <div class="contact-item">
+          <div>✉️</div>
+          <div>
+            Email: <b><a href="mailto:ops@liftlb.com" style="color:inherit;">ops@liftlb.com</a></b>
           </div>
+        </div>
+
+        <div class="mini">
+          Prefer WhatsApp? Tap the green button at the bottom-right of the page.
         </div>
       </div>
 
       <div class="card">
-        <h4>Send us a message</h4>
+        <h2>Send us a message</h2>
 
-        <!-- ✅ Formspree Contact Form -->
-        <form action="https://formspree.io/f/mojjkdda" method="POST">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
-          <textarea name="message" placeholder="Your message" required></textarea>
+        <!-- ✅ Formspree endpoint + Wix-style form fields -->
+        <form action="https://formspree.io/f/mojjkdda" method="POST" class="wix-form">
+          <!-- optional extras for nicer emails -->
+          <input type="hidden" name="_subject" value="New message from liftlb.com" />
+          <input type="hidden" name="_replyto" value="" />
 
-          <button class="btn btn-primary" type="submit">Send Message</button>
+          <label>Name <span>*</span></label>
+          <input type="text" name="name" required />
+
+          <label>Email Address <span>*</span></label>
+          <input type="email" name="email" required />
+
+          <label>Phone <span>*</span></label>
+          <input id="phone" type="tel" name="phone" required />
+
+          <label>Company name (Optional)</label>
+          <input type="text" name="company" />
+
+          <label>What do you need? (Optional)</label>
+          <textarea name="needs" placeholder="Shampoo, Dental kit, Slippers, custom branding..."></textarea>
+
+          <button type="submit" class="wix-btn">Contact Us</button>
         </form>
 
-        <p style="margin-top:10px; color:var(--muted); font-size:13px;">
-          Messages will be sent to <b>ops@liftlb.com</b>.
-        </p>
+        <div class="mini">
+          If Formspree asks to “verify email”, open your Formspree dashboard and confirm the form email for <b>ops@liftlb.com</b>.
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- WHATSAPP FLOATING BUTTON -->
-  <a class="whatsapp-float"
-     href="https://wa.me/96170374172"
-     target="_blank"
-     aria-label="Chat on WhatsApp">
+    <footer>
+      © <span id="year"></span> Lift Lebanon • liftlb.com
+    </footer>
+  </main>
+
+  <!-- WhatsApp Floating Button (ONE small button, bottom-right) -->
+  <a class="whatsapp-float" href="https://wa.me/96170374172" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
-  <div class="footer">
-    © 2026 Lift Lebanon. All rights reserved.
-  </div>
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Phone flag dropdown like Wix (Lebanon default)
+    const phoneInputField = document.querySelector("#phone");
+    if (phoneInputField && window.intlTelInput) {
+      window.intlTelInput(phoneInputField, {
+        initialCountry: "lb",
+        preferredCountries: ["lb", "ae", "sa", "qa"],
+        separateDialCode: true
+      });
+    }
+  </script>
 </body>
 </html>
