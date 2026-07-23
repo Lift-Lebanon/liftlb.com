@@ -1,0 +1,173 @@
+/* ==========================================================
+   LIFT — liftlb.com
+   Shared stylesheet. Edit colours and spacing here only.
+   ========================================================== */
+
+:root{
+  --teal:#0EBAC0; --deep:#067A80; --ink:#16181C;
+  --slate:#6E788A; --mist:#F2F7F8; --line:#E2E9EB; --paper:#fff;
+  --body:#3B4350;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.65 Inter,system-ui,sans-serif;color:var(--ink);
+     background:var(--paper);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:Archivo,system-ui,sans-serif;font-weight:700;
+         letter-spacing:-.02em;line-height:1.12}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+/* ── header ─────────────────────────────────────────────── */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+       backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;
+     gap:20px;min-height:76px;flex-wrap:wrap}
+.mark{display:block;width:132px;flex:none}
+.mark img{width:100%;height:auto;display:block}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{color:var(--slate);text-decoration:none;font-size:14.5px;font-weight:500}
+.nav a:hover{color:var(--teal)}
+.nav a.on{color:var(--ink)}
+.nav .btn{background:var(--ink);color:#fff;padding:11px 20px;border-radius:3px}
+.nav .btn:hover{background:var(--teal);color:#fff}
+.nav .btn.on{background:var(--teal)}
+@media(max-width:720px){
+  .bar{padding-top:14px;padding-bottom:14px}
+  .mark{width:104px}
+  .nav{gap:18px;width:100%;justify-content:space-between;
+       border-top:1px solid var(--line);padding-top:12px}
+  .nav .btn{background:none;color:var(--slate);padding:0}
+  .nav .btn:hover{background:none;color:var(--teal)}
+  .nav .btn.on{background:none;color:var(--ink)}
+}
+
+/* ── hero (home) ────────────────────────────────────────── */
+.hero{padding:104px 0 0}
+.eyebrow{font-family:Archivo;font-size:12px;font-weight:600;letter-spacing:.16em;
+         text-transform:uppercase;color:var(--teal);margin-bottom:26px}
+.hero h1{font-size:clamp(38px,6vw,68px)}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.lede{margin-top:26px;max-width:620px;font-size:19px;color:var(--body)}
+
+/* the pulse from the logo, used as the page's structural rule */
+.pulse{margin:56px 0 0;height:56px;overflow:hidden}
+.pulse svg{width:100%;height:56px;display:block}
+.pulse path{fill:none;stroke:var(--teal);stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:2400;stroke-dashoffset:2400;
+  animation:draw 2.4s cubic-bezier(.6,0,.2,1) .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){
+  .pulse path{animation:none;stroke-dashoffset:0}
+}
+
+/* ── page header (inner pages) ──────────────────────────── */
+.phead{padding:78px 0 0}
+.phead h1{font-size:clamp(32px,5vw,52px)}
+.phead .lede{margin-top:22px}
+.rule{height:1px;background:var(--line);margin-top:54px}
+
+/* ── verification strip ─────────────────────────────────── */
+.verify{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+        margin-top:8px;background:var(--mist)}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr)}
+.vcell{padding:30px 26px;border-right:1px solid var(--line)}
+.vcell:last-child{border-right:0}
+.vk{font-family:Archivo;font-size:10.5px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--slate);margin-bottom:9px}
+.vv{font-family:Archivo;font-size:17px;font-weight:600;color:var(--ink);line-height:1.35}
+.vv small{display:block;font-family:Inter;font-size:13.5px;font-weight:400;
+          color:var(--slate);margin-top:5px}
+@media(max-width:860px){
+  .vgrid{grid-template-columns:repeat(2,1fr)}
+  .vcell:nth-child(2){border-right:0}
+  .vcell:nth-child(1),.vcell:nth-child(2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:460px){
+  .vgrid{grid-template-columns:1fr}
+  .vcell{border-right:0;border-bottom:1px solid var(--line)}
+}
+
+/* ── sections ───────────────────────────────────────────── */
+section{padding:92px 0}
+section.tight{padding-top:0}
+.shead{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+.shead h2{font-size:clamp(26px,3.4vw,37px)}
+.snum{font-family:Archivo;font-size:12px;font-weight:600;
+      color:var(--teal);letter-spacing:.1em}
+.sub{color:var(--slate);max-width:620px;margin-bottom:46px}
+
+/* prose */
+.prose{max-width:680px}
+.prose p{margin-bottom:20px;color:var(--body)}
+.prose p:last-child{margin-bottom:0}
+
+/* product cards */
+.range{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:880px){.range{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:4px;padding:30px 28px;
+      transition:border-color .18s,transform .18s}
+.card:hover{border-color:var(--teal);transform:translateY(-2px)}
+.card .tag{font-family:Archivo;font-size:10.5px;font-weight:600;letter-spacing:.12em;
+           text-transform:uppercase;padding:5px 10px;border-radius:2px;
+           display:inline-block;margin-bottom:18px}
+.now{background:var(--teal);color:#fff}
+.soon{background:var(--mist);color:var(--deep)}
+.card h3{font-size:20px;margin-bottom:14px}
+.card ul{list-style:none;color:var(--body);font-size:15.5px}
+.card li{padding-left:17px;position:relative;margin-bottom:8px}
+.card li:before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;
+                border-radius:50%;background:var(--teal)}
+
+.photo-strip{margin-top:40px}
+.photo-strip img{width:100%;height:340px;object-fit:cover;border-radius:4px;display:block}
+.photo-cap{margin-top:14px;font-size:14px;color:var(--slate);
+           font-style:italic;max-width:640px}
+
+/* audience cards */
+.audience{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:880px){.audience{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.audience{grid-template-columns:1fr}}
+.acard{border:1px solid var(--line);border-radius:4px;padding:26px 24px}
+.acard h3{font-size:16.5px;margin-bottom:10px}
+.acard p{font-size:14.5px;color:var(--body);line-height:1.55}
+
+/* operations list */
+.ops{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
+@media(max-width:760px){.ops{grid-template-columns:1fr}}
+.op{padding:30px 30px 30px 0;border-bottom:1px solid var(--line)}
+.op:nth-child(odd){padding-right:44px}
+.op h3{font-size:17.5px;margin-bottom:9px}
+.op p{font-size:15.5px;color:var(--body)}
+
+/* detail rows (contact / at a glance) */
+.rows{border-top:1px solid var(--line);max-width:760px}
+.row{display:flex;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);
+     flex-wrap:wrap;align-items:baseline}
+.rk{font-family:Archivo;font-size:11px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--slate);width:170px;flex:none;padding-top:4px}
+.rv{font-size:16.5px;color:var(--ink);flex:1;min-width:220px}
+.rv a{color:var(--deep);text-decoration:none;border-bottom:1px solid var(--line)}
+.rv a:hover{color:var(--teal);border-color:var(--teal)}
+.rv small{display:block;font-size:14px;color:var(--slate);margin-top:4px}
+@media(max-width:600px){.rk{width:100%}}
+
+/* ── closing band ───────────────────────────────────────── */
+.close{background:var(--ink);color:#fff;padding:88px 0}
+.close h2{color:#fff;font-size:clamp(27px,3.6vw,40px);max-width:660px}
+.close p{color:#A7B0BD;margin-top:20px;max-width:560px}
+.contact{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.contact a{display:inline-block;padding:14px 24px;border-radius:3px;
+           text-decoration:none;font-weight:500;font-size:15.5px}
+.primary{background:var(--teal);color:#fff}
+.primary:hover{background:#fff;color:var(--ink)}
+.ghost{border:1px solid #3A4250;color:#D6DCE4}
+.ghost:hover{border-color:var(--teal);color:var(--teal)}
+
+/* ── footer ─────────────────────────────────────────────── */
+footer{background:var(--ink);border-top:1px solid #262B33;padding:34px 0;
+       color:#6E788A;font-size:13.5px}
+.frow{display:flex;justify-content:space-between;gap:20px;
+      flex-wrap:wrap;align-items:center}
+footer .mark{width:96px}
