@@ -5,7 +5,7 @@
 
 :root{
   --teal:#0EBAC0; --deep:#067A80; --ink:#16181C;
-  --slate:#6E788A; --mist:#F2F7F8; --line:#E2E9EB; --paper:#fff;
+  --slate:#6B7483; --mist:#F2F7F8; --line:#E2E9EB; --paper:#fff;
   --body:#3B4350;
 }
 
@@ -16,7 +16,7 @@ body{font:400 17px/1.65 Inter,system-ui,sans-serif;color:var(--ink);
 .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
 h1,h2,h3{font-family:Archivo,system-ui,sans-serif;font-weight:700;
          letter-spacing:-.02em;line-height:1.12}
-a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--deep);outline-offset:3px}
 
 /* ── header ─────────────────────────────────────────────── */
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
@@ -27,11 +27,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
 .mark img{width:100%;height:auto;display:block}
 .nav{display:flex;gap:28px;align-items:center}
 .nav a{color:var(--slate);text-decoration:none;font-size:14.5px;font-weight:500}
-.nav a:hover{color:var(--teal)}
+.nav a:hover{color:var(--deep)}
 .nav a.on{color:var(--ink)}
 .nav .btn{background:var(--ink);color:#fff;padding:11px 20px;border-radius:3px}
-.nav .btn:hover{background:var(--teal);color:#fff}
-.nav .btn.on{background:var(--teal)}
+.nav .btn:hover{background:var(--deep);color:#fff}
+.nav .btn.on{background:var(--deep)}
 @media(max-width:720px){
   .bar{padding-top:14px;padding-bottom:14px}
   .mark{width:104px}
@@ -45,9 +45,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
 /* ── hero (home) ────────────────────────────────────────── */
 .hero{padding:104px 0 0}
 .eyebrow{font-family:Archivo;font-size:12px;font-weight:600;letter-spacing:.16em;
-         text-transform:uppercase;color:var(--teal);margin-bottom:26px}
+         text-transform:uppercase;color:var(--deep);margin-bottom:26px}
 .hero h1{font-size:clamp(38px,6vw,68px)}
-.hero h1 em{font-style:normal;color:var(--teal)}
+.hero h1 em{font-style:normal;color:#0AA3A8}
 .lede{margin-top:26px;max-width:620px;font-size:19px;color:var(--body)}
 
 /* the pulse from the logo, used as the page's structural rule */
@@ -95,7 +95,7 @@ section.tight{padding-top:0}
 .shead{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
 .shead h2{font-size:clamp(26px,3.4vw,37px)}
 .snum{font-family:Archivo;font-size:12px;font-weight:600;
-      color:var(--teal);letter-spacing:.1em}
+      color:var(--deep);letter-spacing:.1em}
 .sub{color:var(--slate);max-width:620px;margin-bottom:46px}
 
 /* prose */
@@ -112,9 +112,9 @@ section.tight{padding-top:0}
 .card .tag{font-family:Archivo;font-size:10.5px;font-weight:600;letter-spacing:.12em;
            text-transform:uppercase;padding:5px 10px;border-radius:2px;
            display:inline-block;margin-bottom:18px}
-.now{background:var(--teal);color:#fff}
+.now{background:var(--deep);color:#fff}
 .soon{background:var(--mist);color:var(--deep)}
-.card h3{font-size:20px;margin-bottom:14px}
+.card h3,.card h2{font-size:20px;margin-bottom:14px}
 .card ul{list-style:none;color:var(--body);font-size:15.5px}
 .card li{padding-left:17px;position:relative;margin-bottom:8px}
 .card li:before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;
@@ -149,7 +149,7 @@ section.tight{padding-top:0}
     text-transform:uppercase;color:var(--slate);width:170px;flex:none;padding-top:4px}
 .rv{font-size:16.5px;color:var(--ink);flex:1;min-width:220px}
 .rv a{color:var(--deep);text-decoration:none;border-bottom:1px solid var(--line)}
-.rv a:hover{color:var(--teal);border-color:var(--teal)}
+.rv a:hover{color:var(--deep);border-color:var(--deep)}
 .rv small{display:block;font-size:14px;color:var(--slate);margin-top:4px}
 @media(max-width:600px){.rk{width:100%}}
 
@@ -160,14 +160,14 @@ section.tight{padding-top:0}
 .contact{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
 .contact a{display:inline-block;padding:14px 24px;border-radius:3px;
            text-decoration:none;font-weight:500;font-size:15.5px}
-.primary{background:var(--teal);color:#fff}
+.primary{background:var(--deep);color:#fff}
 .primary:hover{background:#fff;color:var(--ink)}
 .ghost{border:1px solid #3A4250;color:#D6DCE4}
 .ghost:hover{border-color:var(--teal);color:var(--teal)}
 
 /* ── footer ─────────────────────────────────────────────── */
 footer{background:var(--ink);border-top:1px solid #262B33;padding:34px 0;
-       color:#6E788A;font-size:13.5px}
+       color:#7E8798;font-size:13.5px}
 .frow{display:flex;justify-content:space-between;gap:20px;
       flex-wrap:wrap;align-items:center}
 footer .mark{width:96px}
